@@ -1,0 +1,151 @@
+body {
+    background-color: #071028; /* céu noturno */
+    color: #dfefff; /* texto claro sobre fundo escuro */
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1 {
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+a {
+    color: #ff0000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Animação de fundo: montanhas, turbinas e vento */
+.bg-anim {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+.bg-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.mount { fill: #081722; opacity: 0.95; }
+.mount.layer1 { fill: #071a25; opacity: 0.95; }
+.mount.layer2 { fill: #05202a; opacity: 0.9; }
+.mount.layer3 { fill: #021724; opacity: 0.85; }
+
+.turbine .tower { fill: #e6eef5; opacity: 0.95; }
+.blade { fill: #ffffffcc; }
+.blade-group {
+    /* animação via <animateTransform> no SVG; evitar transforms CSS que causem deslocamento */
+}
+
+.wind { stroke: rgba(255,255,255,0.45); stroke-linecap: round; fill: none; }
+.w1 { stroke-width: 3; animation: windMove 10s linear infinite; }
+.w2 { stroke-width: 2; animation: windMove 14s linear infinite; }
+.w3 { stroke-width: 2; animation: windMove 18s linear infinite; }
+
+/* animation handled via SVG animateTransform to ensure correct rotation origin */
+
+@keyframes windMove {
+    0% { transform: translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translateX(40%); opacity: 0.6; }
+    100% { transform: translateX(80%); opacity: 0; }
+}
+
+/* movimento sutil das montanhas (parallax lento) */
+.mountains { animation: mountainsMove 30s linear infinite; }
+@keyframes mountainsMove {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-2%); }
+    100% { transform: translateX(0); }
+}
+
+/* ajuste de origem de rotação das hélices (centro do grupo) */
+.blade-group { transform-origin: 0px 0px; }
+
+.hub { fill: #e6eef5; stroke: #cbd6df; stroke-width: 1px; }
+
+/* Estrelas e constelação */
+.star { fill: #fff; opacity: 0.95; filter: drop-shadow(0 0 6px rgba(255,255,255,0.85)); animation: twinkle 3.6s ease-in-out infinite; }
+.star.small { r: 1.5; opacity: 0.6; filter: none; animation-duration: 4.5s; }
+.constellation { stroke: rgba(200,220,255,0.6); stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; animation: dash 6s linear infinite; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.95; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: -30; }
+}
+
+/* Modo dia: céu claro, sol visível, estrelas ocultas */
+.day {
+    background: linear-gradient(to bottom, #cfefff, #eaf7ff); /* céu azul claro */
+    color: #012136;
+}
+.day .mount { fill: #d9f2d9; opacity: 1; } /* verde claro */
+.day .mount.layer1 { fill: #c9ecbf; }
+.day .mount.layer2 { fill: #b6e5a3; }
+.day .mount.layer3 { fill: #9fd98a; }
+.day .star, .day .constellation { display: none; }
+.sun { display: none; }
+.day .sun { display: block; }
+.sun circle { filter: drop-shadow(0 0 12px rgba(255,210,90,0.8)); }
+.day .wind { stroke: rgba(0,0,0,0.08); }
+
+.day h1 { color: #000000; }
+
+/* botão de alternância simples */
+#theme-toggle {
+    background: rgba(255,255,255,0.08);
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 6px 10px;
+    margin-right: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#theme-toggle:hover { background: rgba(255,255,255,0.12); }
+
+/* Estilo padrão para todos os botões: retangulares com cantos circulares */
+button {
+    background: rgba(255,255,255,0.06);
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 8px 14px;
+    margin-right: 6px;
+    border-radius: 12px; /* cantos circulares */
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.08s ease;
+}
+button:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
+
+/* Centralizar conteúdo do header e posicionar botões acima do hr */
+.page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.header-title h1 { margin: 8px 0 4px 0; }
+.header-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+.page-header hr { width: 90%; border: none; border-top: 1px solid rgba(255,255,255,0.08); }
+
+
+
