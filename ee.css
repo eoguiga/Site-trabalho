@@ -16,8 +16,7 @@ body{margin:0;font-family:Segoe UI, Roboto, system-ui, -apple-system, 'Helvetica
 .nav-list a:hover{background:rgba(255,255,255,0.12)}
 .hero{padding:56px 18px;color:#fff;text-align:center; background-color:var(--primary); background-blend-mode:overlay; background-size:cover; background-position:center; background-repeat:no-repeat;}
 
-/* Hero background images (local files) */
-.hero{background-image: linear-gradient(130deg, rgba(31,92,178,0.72), rgba(99,166,244,0.45)), url("Parque eólico no campo verdejante.png");}
+.hero{background-image: linear-gradient(130deg, rgba(31,92,178,0.72), rgba(99,166,244,0.45)), url("parque-eolico.svg");}
 .hero-inner{max-width:980px;margin:0 auto}
 .hero h1{margin:0;font-size:2rem;line-height:1.15}
 .hero p{margin-top:12px;margin-bottom:16px;line-height:1.5}
@@ -44,7 +43,7 @@ body{margin:0;font-family:Segoe UI, Roboto, system-ui, -apple-system, 'Helvetica
 .dark body, .dark{background:var(--bg);color:var(--text)}
 .dark .site-nav{background:var(--primary)}
 .dark .nav-list a{color:rgba(255,255,255,0.9)}
-.dark .hero{background-image: linear-gradient(130deg, rgba(11,37,64,0.8), rgba(23,75,122,0.5)), url("Campo tranquilo sob a luz da lua.png"); background-size:cover; background-position:center}
+.dark .hero{background-image: linear-gradient(130deg, rgba(11,37,64,0.8), rgba(23,75,122,0.5)), url("campo-lua.svg"); background-size:cover; background-position:center}
 .dark .card{background:var(--card-bg);border-color:rgba(255,255,255,0.02);box-shadow:0 12px 30px rgba(2,8,20,0.6)}
 /* bordas circulares no modo noturno */
 .dark .card{border-radius:28px}

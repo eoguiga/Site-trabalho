@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+  <rect width="1200" height="400" fill="#071226"/>
+  <circle cx="1050" cy="80" r="40" fill="#f2e9c9"/>
+  <g fill="#fff">
+    <circle cx="200" cy="60" r="2"/>
+    <circle cx="320" cy="40" r="2"/>
+    <circle cx="420" cy="90" r="2"/>
+  </g>
+  <text x="20" y="40" font-family="Segoe UI, Arial" font-size="28" fill="#a8c9e8">Noite (placeholder)</text>
+</svg>
